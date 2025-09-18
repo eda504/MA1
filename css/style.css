@@ -1,0 +1,183 @@
+body {
+    margin: 0;
+    background-image: url('../images/water_texture.png'), linear-gradient(90deg, #26A69A, #B2DFDB);
+    background-size: cover, auto;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    position: relative;
+    font-family: 'Open Sans', sans-serif;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.6);
+    z-index: -1;
+}
+
+.swim-nav {
+    background: linear-gradient(90deg, #26A69A, #B2DFDB);
+    padding: 10px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.swim-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.swim-nav li {
+    margin: 0 15px;
+}
+
+.swim-nav a {
+    font-family: 'Comic Neue', cursive;
+    font-size: 18px;
+    font-weight: 700;
+    color: #0288D1;
+    text-decoration: none;
+    padding: 8px 15px;
+    border: 2px solid #689F38;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.swim-nav a:hover {
+    color: #FFFFFF;
+    background-color: #689F38;
+}
+
+.swim-title {
+    font-size: 48px;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    color: #0288D1;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    margin: 20px 0;
+    animation: swim-box-bounce 1.5s ease-in-out infinite;
+}
+
+.swim-subtitle {
+    font-size: 28px;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    color: #689F38;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+    margin: 15px 0;
+}
+
+.swim-text {
+    font-family: 'Open Sans', sans-serif;
+    color: #333333;
+    text-align: center;
+    padding: 10px;
+    margin-left: 20px;
+    font-size: 16px;
+    line-height: 1.6;
+    border: 2px solid #26A69A;
+}
+
+.swim-box-table {
+    width: 80%;
+    margin: 25px auto;
+    border-collapse: collapse;
+    border: 3px solid #26A69A;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.swim-box-table th {
+    background-color: #0288D1;
+    color: #FFFFFF;
+    font-family: 'Comic Neue', cursive;
+    font-size: 24px;
+    padding: 12px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.swim-box-table td {
+    font-family: 'Open Sans', sans-serif;
+    color: #333333;
+    font-size: 18px;
+    padding: 12px;
+    border: 1px solid #B2DFDB;
+}
+
+.swim-box-table tr:nth-child(odd) {
+    background-color: #B2DFDB;
+}
+
+.swim-box-table tr:nth-child(even) {
+    background-color: #FFCA28;
+}
+
+.swim-box-wrap {
+    overflow: hidden;
+    margin: 25px auto;
+    max-width: 80%;
+    border: 2px solid #689F38;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.swim-box-wrap img {
+    float: left;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    border: 2px solid #0288D1;
+    width: 200px;
+    height: auto;
+    transition: box-shadow 0.3s ease;
+}
+
+.swim-box-wrap img.swim-box-image:hover {
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.swim-video-title {
+    font-family: 'Montserrat', sans-serif;
+    color: #689F38;
+    text-align: center;
+    font-size: 20px;
+    margin: 15px 0;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+iframe {
+    border: 2px solid #0288D1;
+    margin: 15px auto;
+    display: block;
+    width: 560px;
+    height: 315px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+a {
+    font-family: 'Comic Neue', cursive;
+    color: #0288D1;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #689F38;
+}
+
+@keyframes swim-box-bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
