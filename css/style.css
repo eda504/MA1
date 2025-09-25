@@ -1,4 +1,26 @@
+/* Adobe Fonts Kit */
+@import url('https://use.typekit.net/gyy3ngy.css');
+
+/* Font Classes */
+.primary-font {
+    font-family: "source-sans-pro", sans-serif;
+    font-weight: 400; /* Regular: body text, navigation, links */
+}
+
+.secondary-font {
+    font-family: "source-sans-pro", sans-serif;
+    font-weight: 200; /* ExtraLight: paragraphs */
+}
+
+.accent-font {
+    font-family: "source-sans-pro", sans-serif;
+    font-weight: 700; /* Bold: headings, title */
+}
+
+/* Original Styling (Preserved with Font Updates) */
 body {
+    font-family: "source-sans-pro", sans-serif;
+    font-weight: 400; /* Primary font */
     margin: 0;
     background-image: url('../images/background.jpg');
     background-size: cover;
@@ -41,6 +63,8 @@ body::after {
 }
 
 .title {
+    font-family: "source-sans-pro", sans-serif;
+    font-weight: 700; /* Accent font */
     font-size: 48px;
     color: #fff;
     background: rgba(255, 255, 255, 0.15);
@@ -48,7 +72,6 @@ body::after {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), inset 0 0 15px rgba(255, 255, 255, 0.8);
     padding: 10px 20px;
-    border-radius: 10px;
     margin-bottom: 20px;
     float: left;
     animation: fadeIn 2s ease-out;
@@ -69,7 +92,10 @@ body::after {
     margin-top: 25px;
     margin-right: 25px;
 }
+
 .nav-button {
+    font-family: "source-sans-pro", sans-serif;
+    font-weight: 400; /* Primary font */
     width: 40px;
     height: 40px;
     background: rgba(255, 255, 255, 0.15);
@@ -84,6 +110,7 @@ body::after {
     transition: transform 0.2s, box-shadow 0.2s;
     padding: 10px;
 }
+
 .nav-button:hover {
     transform: scale(1.1);
 }
@@ -123,14 +150,17 @@ body::after {
 .panel.left {
     background: linear-gradient(to bottom, #e8f5e9, #c8e6c9);
 }
+
 .panel.right {
     background: linear-gradient(to bottom, #f9f9f3, #e0e0d1);
     width: 12%;
 }
+
 .panel.center {
     background: linear-gradient(to bottom, #e0f2f7, #b2ebf2);
     flex: 2;
 }
+
 .panel::before {
     content: "";
     position: absolute;
@@ -140,30 +170,35 @@ body::after {
     height: 8px; /* Increased thickness */
     background: rgba(0, 0, 0, 0.4); /* Darker solid line */
 }
+
 .panel.left::before {
     background: rgba(5, 196, 5, 0.4); /* Darker shade for left panel */
 }
+
 .panel.center::before {
     background: rgba(9, 9, 176, 0.4); /* Darker shade for center panel */
 }
+
 .panel.right::before {
     background: rgba(169, 169, 8, 0.4); /* Darker shade for right panel */
 }
 
 .panel h2 {
+    font-family: "source-sans-pro", sans-serif;
+    font-weight: 700; /* Accent font */
     font-size: 24px;
     color: #808080; /* Grey text */
     margin-bottom: 10px;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
-    font-family: 'Lora', serif; /* New font */
 }
 
 .panel p {
+    font-family: "source-sans-pro", sans-serif;
+    font-weight: 200; /* Secondary font */
     font-size: 16px;
     color: #808080; /* Grey text */
     margin: 10px 0;
     line-height: 1.5;
-    font-family: 'Lora', serif; /* New font */
 }
 
 .panel ul {
@@ -173,14 +208,16 @@ body::after {
 }
 
 .panel ul li {
+    font-family: "source-sans-pro", sans-serif;
+    font-weight: 400; /* Primary font */
     margin-bottom: 10px;
-    font-family: 'Lora', serif; /* New font */
 }
 
 .panel a {
+    font-family: "source-sans-pro", sans-serif;
+    font-weight: 400; /* Primary font */
     color: #00c4ff;
     text-decoration: none;
-    font-family: 'Lora', serif; /* New font */
 }
 
 .panel a:hover {
@@ -201,17 +238,17 @@ body::after {
 }
 
 .panel span {
+    font-family: "source-sans-pro", sans-serif;
+    font-weight: 400; /* Primary font */
     display: block;
     font-size: 14px;
     color: #808080; /* Grey text */
     margin-top: 5px;
-    font-family: 'Lora', serif; /* New font */
 }
-
 
 @keyframes fadeIn {
     0% { transform: scale(0.5); opacity: 0; }
-    100% { transform: scale(1); opacity: 3; }
+    100% { transform: scale(1); opacity: 1; }
 }
 
 @keyframes liquidShimmer {
