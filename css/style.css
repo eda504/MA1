@@ -1,12 +1,11 @@
 body {
     margin: 0;
-    background-image: url('../images/water_texture.png'), linear-gradient(90deg, #26A69A, #B2DFDB);
-    background-size: cover, auto;
+    background-image: url('../images/background.jpg');
+    background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
     position: relative;
-    font-family: 'Open Sans', sans-serif;
 }
 
 body::before {
@@ -16,168 +15,207 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(255, 255, 255, 0.6);
-    z-index: -1;
+    background: inherit; /* Inherits the background image */
+    filter: blur(5px); /* Applies blur to the background */
+    z-index: -1; /* Places it behind content */
 }
 
-.swim-nav {
-    background: linear-gradient(90deg, #26A69A, #B2DFDB);
-    padding: 10px 0;
-    position: sticky;
+body::after {
+    content: '';
+    position: absolute;
     top: 0;
-    z-index: 1000;
+    left: 0;
     width: 100%;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    height: 100%;
+    background: rgba(255, 255, 255, 0.6); /* Semi-transparent overlay for readability */
+    z-index: -1; /* Stacks behind content, above blurred layer */
 }
 
-.swim-nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+.container {
     display: flex;
     justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    animation: fadeIn 2s ease-out;
 }
 
-.swim-nav li {
-    margin: 0 15px;
-}
-
-.swim-nav a {
-    font-family: 'Comic Neue', cursive;
-    font-size: 18px;
-    font-weight: 700;
-    color: #0288D1;
-    text-decoration: none;
-    padding: 8px 15px;
-    border: 2px solid #689F38;
-    transition: color 0.3s ease, background-color 0.3s ease;
-}
-
-.swim-nav a:hover {
-    color: #FFFFFF;
-    background-color: #689F38;
-}
-
-.swim-title {
+.title {
     font-size: 48px;
-    text-align: center;
-    font-family: 'Montserrat', sans-serif;
-    color: #0288D1;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-    margin: 20px 0;
-    animation: swim-box-bounce 1.5s ease-in-out infinite;
-}
-
-.swim-subtitle {
-    font-size: 28px;
-    text-align: center;
-    font-family: 'Montserrat', sans-serif;
-    color: #689F38;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
-    margin: 15px 0;
-}
-
-.swim-text {
-    font-family: 'Open Sans', sans-serif;
-    color: #333333;
-    text-align: center;
-    padding: 10px;
-    margin-left: 20px;
-    font-size: 16px;
-    line-height: 1.6;
-    border: 2px solid #26A69A;
-}
-
-.swim-box-table {
-    width: 80%;
-    margin: 25px auto;
-    border-collapse: collapse;
-    border: 3px solid #26A69A;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-}
-
-.swim-box-table th {
-    background-color: #0288D1;
-    color: #FFFFFF;
-    font-family: 'Comic Neue', cursive;
-    font-size: 24px;
-    padding: 12px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-.swim-box-table td {
-    font-family: 'Open Sans', sans-serif;
-    color: #333333;
-    font-size: 18px;
-    padding: 12px;
-    border: 1px solid #B2DFDB;
-}
-
-.swim-box-table tr:nth-child(odd) {
-    background-color: #B2DFDB;
-}
-
-.swim-box-table tr:nth-child(even) {
-    background-color: #FFCA28;
-}
-
-.swim-box-wrap {
-    overflow: hidden;
-    margin: 25px auto;
-    max-width: 80%;
-    border: 2px solid #689F38;
-    padding: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.swim-box-wrap img {
-    float: left;
-    margin-right: 20px;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.15);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), inset 0 0 15px rgba(255, 255, 255, 0.8);
+    padding: 10px 20px;
+    border-radius: 10px;
     margin-bottom: 20px;
-    border: 2px solid #0288D1;
-    width: 200px;
-    height: auto;
-    transition: box-shadow 0.3s ease;
+    float: left;
+    animation: fadeIn 2s ease-out;
+    transition-property: transform; /* Specify that only the transform property will transition */
+    transition-duration: 1s;
 }
 
-.swim-box-wrap img.swim-box-image:hover {
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+.title:hover {
+    transform: scale(1.1);
 }
 
-.swim-video-title {
-    font-family: 'Montserrat', sans-serif;
-    color: #689F38;
+.navbar {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    gap: 35px;
+    margin-top: 25px;
+    margin-right: 25px;
+}
+.nav-button {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.15);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), inset 0 0 15px rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    padding: 10px;
+}
+.nav-button:hover {
+    transform: scale(1.1);
+}
+
+.desktop {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    height: 60%;
+}
+
+.panel {
+    flex: 1;
+    margin: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), inset 0 0 20px rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(20px);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+    position: relative;
+    overflow: hidden;
+    animation: liquidShimmer 4s infinite ease-in-out;
+    transition-property: transform; /* Specify that only the transform property will transition */
+    transition-duration: 1.5s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    font-size: 20px;
-    margin: 15px 0;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+    padding: 20px;
 }
 
-iframe {
-    border: 2px solid #0288D1;
-    margin: 15px auto;
-    display: block;
-    width: 560px;
-    height: 315px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+.panel:hover {
+    transform: scale(1.10);
 }
 
-a {
-    font-family: 'Comic Neue', cursive;
-    color: #0288D1;
+.panel.left {
+    background: linear-gradient(to bottom, #e8f5e9, #c8e6c9);
+}
+.panel.right {
+    background: linear-gradient(to bottom, #f9f9f3, #e0e0d1);
+    width: 12%;
+}
+.panel.center {
+    background: linear-gradient(to bottom, #e0f2f7, #b2ebf2);
+    flex: 2;
+}
+.panel::before {
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: 0;
+    right: 0;
+    height: 8px; /* Increased thickness */
+    background: rgba(0, 0, 0, 0.4); /* Darker solid line */
+}
+.panel.left::before {
+    background: rgba(5, 196, 5, 0.4); /* Darker shade for left panel */
+}
+.panel.center::before {
+    background: rgba(9, 9, 176, 0.4); /* Darker shade for center panel */
+}
+.panel.right::before {
+    background: rgba(169, 169, 8, 0.4); /* Darker shade for right panel */
+}
+
+.panel h2 {
+    font-size: 24px;
+    color: #808080; /* Grey text */
+    margin-bottom: 10px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    font-family: 'Lora', serif; /* New font */
+}
+
+.panel p {
+    font-size: 16px;
+    color: #808080; /* Grey text */
+    margin: 10px 0;
+    line-height: 1.5;
+    font-family: 'Lora', serif; /* New font */
+}
+
+.panel ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+.panel ul li {
+    margin-bottom: 10px;
+    font-family: 'Lora', serif; /* New font */
+}
+
+.panel a {
+    color: #00c4ff;
     text-decoration: none;
-    transition: color 0.3s ease;
+    font-family: 'Lora', serif; /* New font */
 }
 
-a:hover {
-    color: #689F38;
+.panel a:hover {
+    text-decoration: underline;
 }
 
-@keyframes swim-box-bounce {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-10px);
-    }
+.panel img {
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.panel.center img {
+    max-width: 65%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.panel span {
+    display: block;
+    font-size: 14px;
+    color: #808080; /* Grey text */
+    margin-top: 5px;
+    font-family: 'Lora', serif; /* New font */
+}
+
+
+@keyframes fadeIn {
+    0% { transform: scale(0.5); opacity: 0; }
+    100% { transform: scale(1); opacity: 3; }
+}
+
+@keyframes liquidShimmer {
+    0% { background-position: 0% 0%; }
+    50% { background-position: 100% 100%; }
+    100% { background-position: 0% 0%; }
 }
